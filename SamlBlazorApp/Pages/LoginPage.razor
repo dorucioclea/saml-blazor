@@ -1,0 +1,16 @@
+@page "/login"
+@using Microsoft.AspNetCore.Authentication
+@inject NavigationManager NavigationManager
+
+
+
+<h3>Login</h3>
+<button class="btn btn-primary" @onclick="SignIn">Sign in with SAML2</button>
+
+@code {
+    private void SignIn()
+    {
+        var properties = new AuthenticationProperties { RedirectUri = "/" };
+        NavigationManager.NavigateTo("Saml2/SignIn", true);
+    }
+}
